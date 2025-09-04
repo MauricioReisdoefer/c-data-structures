@@ -41,9 +41,9 @@ This repository will offer:
 
 Your contribution is very welcome! If you wish to collaborate on this project, please follow the detailed guidelines in our `CONTRIBUTING.md` file. There you will find information on how to:
 
-1.  Open issues to report bugs or suggest improvements.
-2.  Propose new implementations or optimizations.
-3.  Submit Pull Requests following our code standards.
+1. Open issues to report bugs or suggest improvements.
+2. Propose new implementations or optimizations.
+3. Submit Pull Requests following our code standards.
 
 Access in [CONTRIBUINT.md](CONTRIBUTING.md)
 
