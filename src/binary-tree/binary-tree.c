@@ -1,37 +1,22 @@
-#include "binary-tree.h"
-#include <stdio.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "node.h"
+#include "binary-tree.h"
 
-Node* createNode(int value, Node* left_n, Node* right_n)
+Node* findValue(int value, Node* root)
 {
-    Node *new_node = malloc(sizeof(Node));
-
-    if (!new_node) {
-        perror("Erro ao alocar memória");
-        exit(1);
-    }
-
-    new_node->value = value;
-    new_node->left = left_n;
-    new_node->right = right_n;
-
-    return new_node;
-}
-
-Node* addNode(int value, Node* root) {
     if (root == NULL) {
-        Node* new_node = createNode(value, NULL, NULL);
-        return new_node;
+        perror("Not Found");
+        return NULL;
     }
 
-    if (value < root->value) {
-        root->left = addNode(value, root->left);
-    } else if (value == root->value) {
+    if (root->value == value){
         return root;
-    } else {
-        root->right = addNode(value, root->right);
     }
-
-    return root;
+    else if(root->value > value){
+        return findValue(value, root->left);
+    }
+    else {
+        return findValue(value, root->right);
+    }
 }
