@@ -69,3 +69,10 @@ Node* removeNode(int value, Node* root) {
     }
     return root;
 }
+
+Node* findMax(Node* root) {
+    while (root && root->right) {
+        root = root->left;
+    }
+    return root;
+}
