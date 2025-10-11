@@ -3,8 +3,7 @@
 #include "node.h"
 #include "binary-tree.h"
 
-Node* findValue(int value, Node* root)
-{
+Node* findValue(int value, Node* root) {
     if (root == NULL) {
         perror("Not Found");
         return NULL;
@@ -35,5 +34,38 @@ Node* addNode(int value, Node* root) {
         root->right = addNode(value, root->right);
     }
 
+    return root;
+}
+
+Node* findMin(Node* root) {
+    while (root && root->left) {
+        root = root->left;
+    }
+    return root;
+}
+
+Node* removeNode(int value, Node* root) {
+    if (!root) return NULL;
+
+    if (value < root->value) {
+        root->left = removeNode(value, root->left);
+    } else if (value > root->value) {
+        root->right = removeNode(value, root->right);
+    } else {
+
+        if (!root->left) {
+            Node* temp = root->right;
+            free(root);
+            return temp;
+        } else if (!root->right) {
+            Node* temp = root->left;
+            free(root);
+            return temp;
+        } else {
+            Node* temp = findMin(root->right);
+            root->value = temp->value; 
+            root->right = removeNode(temp->value, root->right);
+        }
+    }
     return root;
 }
