@@ -20,3 +20,20 @@ Node* findValue(int value, Node* root)
         return findValue(value, root->right);
     }
 }
+
+Node* addNode(int value, Node* root) {
+    if (root == NULL) {
+        Node* new_node = createNode(value, NULL, NULL);
+        return new_node;
+    }
+
+    if (value < root->value) {
+        root->left = addNode(value, root->left);
+    } else if (value == root->value) {
+        return root;
+    } else {
+        root->right = addNode(value, root->right);
+    }
+
+    return root;
+}

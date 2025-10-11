@@ -8,6 +8,6 @@ typedef struct Node
     struct Node *right;
 } Node;
 
-Node* addNode(int value, Node* root);
+void freeNode(Node* node);
 Node* createNode(int value, Node* left, Node* right);
 #endif

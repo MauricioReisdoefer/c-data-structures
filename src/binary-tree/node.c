@@ -19,19 +19,14 @@ Node* createNode(int value, Node* left_n, Node* right_n)
     return new_node;
 }
 
-Node* addNode(int value, Node* root) {
-    if (root == NULL) {
-        Node* new_node = createNode(value, NULL, NULL);
-        return new_node;
-    }
+void freeNode(Node* node)
+{
+    if (!node) return;
 
-    if (value < root->value) {
-        root->left = addNode(value, root->left);
-    } else if (value == root->value) {
-        return root;
-    } else {
-        root->right = addNode(value, root->right);
+    if (node->left) {
+        freeNode(node->left);
+    } if (node->right) {
+        freeNode(node->right);
     }
-
-    return root;
+    free(node);
 }

@@ -4,5 +4,6 @@
 #include "node.h"
 
 Node* findValue(int value, Node* root);
+Node* addNode(int value, Node* root);
 
 #endif
