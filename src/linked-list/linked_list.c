@@ -22,8 +22,20 @@ Node* addNode(int value, Node* root) {
 
 void printTree(Node* root) {
     Node* current_node = root;
-    while(current_node-> next != NULL) {
+
+    while(current_node != NULL) {
         printf("%d\n", current_node->value);
         current_node = current_node->next;
     }
+}
+
+Node* findValue(int value, Node* root) {
+    Node* current_node = root;
+    while(current_node != NULL) {
+        if(current_node->value == value){
+            return current_node;
+        }
+        current_node = current_node->next;
+    }
+    return NULL;
 }
