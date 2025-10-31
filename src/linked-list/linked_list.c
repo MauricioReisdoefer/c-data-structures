@@ -11,11 +11,19 @@ Node* addNode(int value, Node* root) {
     }
 
     // O(n) implementation
-    Node* current = root;
-    while (current->next != NULL) {
-        current = current->next;
+    Node* current_node = root;
+    while (current_node->next != NULL) {
+        current_node = current_node->next;
     }
 
-    current->next = newNode;
+    current_node->next = newNode;
     return newNode;
+}
+
+void printTree(Node* root) {
+    Node* current_node = root;
+    while(current_node-> next != NULL) {
+        printf("%d\n", current_node->value);
+        current_node = current_node->next;
+    }
 }
